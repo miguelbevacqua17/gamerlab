@@ -1,0 +1,58 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Editando perfil de <%=user.nombre%>';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+    <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST" class="formulario-prod" enctype="multipart/form-data">
+        
+    <h1 class="titulo-formulario">EDICIÓN DE PERFIL</h1>
+
+    <div class="formulario-producto">
+        <label for="file">Imagen del usuario: </label>
+        <img src="/img/avatars/<%=user.imagen%>" style="max-width: 100%;">
+        <input type="file" name="image" class="usuario" placeholder="foto" id="foto-producto">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Nombre del usuario:</label>
+        <input type="text" value="<%=user.nombre%>" name="name" class="usuario" placeholder="Nombre del usuario" id="formulario-text">
+    </div>    
+    
+    <div class="formulario-producto">
+        <label>Apellido del usuario:</label>
+        <input type="text" id="formulario-text" class="usuario" name="apellido" value='<%=user.apellido%>'></input>
+    </div>
+
+    <div class="formulario-producto">
+        <label>Cumpleaños:</label>
+        <input type="date" value ="<%=user.fecha_nacimiento%>" name="fecha_nacimiento" class="usuario" id="formulario-text">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Dirección de email: </label>
+        <input type="email" value="<%=user.email%>" name="email" class="usuario" placeholder="email" id="formulario-text">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Documento nacional de identidad: </label>
+        <input type="text" name="dni" class="usuario" id="formulario-text" value="<%=user.dni%>">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Teléfono: </label>
+        <input type="text" name="telefono" class="usuario" id="formulario-text" value="<%=user.telefono%>">
+    </div>
+
+    <button type="submit" class="formulario-boton">Modificar perfil</button>
+    
+</form>
+
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+    <script src="/js/perfil.js"></script>
+
+</main>
+<%- include('./../views/partials/footer') %>
+
+</body>
+</html>

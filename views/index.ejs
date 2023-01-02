@@ -1,0 +1,62 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+<main>
+    <div id="slider">
+        <ul id="slideWrap"> 
+            <li><img src="/img/kunpapa.jpg" alt="" width="720" height="300"></li>
+            <li><img src="/img/lolchamp.jpg" alt=""></li>
+            <li><img src="/img/superpc.png" alt=""></li>
+            <li><img src="/img/nvi.jpg" alt=""></li>
+        </ul>
+        <a id="prev" href="#!">&#8810;</a>
+        <a id="next" href="#!">&#8811;</a>
+    </div>
+       
+        
+
+    <div c.lass="container products-wrapper" id="lista-productos">
+        <div class="col-12">
+            <h3 class="titulos">NOVEDADES</h3>
+        </div>
+            
+            <div class="row">
+                <% for (let i =0; i < productos.length; i++) { %> 
+                    <% if (productos[i].deleteable == 1 ) { %> 
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="product-box product-item">
+                        <a href="/products/detail/<%=productos[i].id %>">
+                            <figure class="product-box_image">
+                                <img src="/img/products/<%=productos[i].imagen %>">
+                            </figure>
+                            <article class="product-box_data"></article>
+                                <h4 class="product-title"><%=productos[i].nombre %></h4>
+                                <h3 class="product-price">$<%=productos[i].precio_lista %></h3>
+                            </article>
+                        </a>
+                    </section>
+                </div>
+                    <% } %>
+                <% } %> 
+        </div>
+    <script src="/js/show-hide.js"></script>
+    <script src="/js/slideshow.js"></script>
+
+        <section class="noticia">
+            <h3 class="noticias">NOTICIAS</h3>
+            <div class="noticia-banner">
+               <h4 class="titulo-articulo">KRÜ, el nuevo equipo de esports del Kun Agüero</h4>
+               <p class="articulo">El delantero de la Selección Argentina y flamante refuerzo del Barcelona anunció la creación de su flamante equipo de esports que, por el momento, se sabe que competirá en FIFA 21. </p>
+               <a href="#!" class="btn"> Leer más </a>
+            </div>
+        </section>
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+    </main>
+    
+    <%- include('./../views/partials/footer') %>
+    
+</body>
+</html>

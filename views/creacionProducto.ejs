@@ -1,0 +1,59 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Nuevo producto';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+    <form action="/products/create" name="formulario" id="form" method="POST" class="formulario-prod" enctype="multipart/form-data" onsubmit="return validar();">
+        
+    <h1 class="titulo-formulario">CREACIÓN DE PRODUCTO</h1>
+
+    <div class="formulario-producto">
+        <label for="file">Imagen del producto:</label>
+        <input type="file" name="image" class="usuario" id="image">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Nombre del producto:</label>
+        <input type="text" name="name" id="name" class="usuario" placeholder="Nombre del producto">
+    </div>    
+    
+    <div class="formulario-producto">
+        <label>Descripción:</label>
+        <textarea rows="4" cols="40" name="description" id="description" class="usuario" placeholder="description" ></textarea>
+    </div>
+
+    <div class="formulario-producto">
+        <label>Precio:</label>
+        <input type="text" name="price" id="price" class="usuario" placeholder="$">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Descuento:</label>
+        <input type="text" name="discount" id="discount" class="usuario" placeholder="%" >
+    </div>
+
+    <div class="formulario-producto">
+        <label>Stock:</label>
+        <input type="number" name="stock" id="stock" class="usuario">
+    </div>
+
+
+    <div class="formulario-producto">
+      <label for="categoria">Categoría del producto:</label>
+            <select name="category" id="category" class="usuario">
+                <% for (let i=0; i < categorias.length ; i++) { %>
+                    <option value="<%=categorias[i].id%>">
+                    <%=categorias[i].nombre%>
+                    </option>
+                <% } %>
+                
+            </select>
+    </div>
+
+    <button type="submit" class="formulario-boton">Crear producto</button>
+</form>
+<script src="/js/sweetalert2.min.js"></script>
+<script src="/js/validar.js"></script>
+</main>
+<%- include('./../views/partials/footer') %>
+</body>
+</html>

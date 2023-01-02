@@ -1,0 +1,43 @@
+<%-include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Todos los productos';</script>
+
+<body>
+    <%- include('./../views/partials/header') %>
+    <main>
+        <div c.lass="container products-wrapper">
+            <div class="col-12">
+        <h2 class="titulos">TODOS LOS PRODUCTOS</h2>
+            </div>
+            <% if(locals.isLogged.rol == 1){ %> 
+            <div class="crear-producto-btn">
+              <button><a href="/products/create">CREAR PRODUCTO</a></button>
+            </div>
+            <% } %>
+
+    <div class="row">
+    <% for(let i=0; i < productos.length; i++) { %> 
+        <% if (productos[i].deleteable == 1 ) { %> 
+    <div class="col-12 col-sm-6 col-lg-3">
+        <section class="product-box">
+            <a href="/products/detail/<%= productos[i].id  %>">
+                <figure class="product-box_image">
+                    <img src="/img/products/<%=productos[i].imagen %>" alt="imagen de producto">
+                </figure>
+                <article class="product-box_data">
+                    <h4 class="product-title">$<%=productos[i].precio_lista %> </h4>
+                    <h3 class="product-price"><%=productos[i].nombre %></h3>
+                </article>
+            </a>
+        </section>
+    </div>
+        <% } %>
+    <% } %>
+        </div>
+    </div>
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+    </main>
+    <%- include('./../views/partials/footer') %>
+</body>
+</html>

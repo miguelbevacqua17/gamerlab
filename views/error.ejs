@@ -1,0 +1,24 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+<main>
+    
+        <img id="error" src="../img/error-gif.gif" width="">
+        <p></p>
+        <h3 class="carrito-titulo">OOPS!! Parece que algo salió mal</h3>
+
+        <div style="margin: 1.5em;display: flex;flex-direction: row;margin-left: 45%;">
+            <a href="/"  class="prod-edit agregar-carrito">Volver a inicio</a>
+        </div>
+
+
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+</main>
+    
+    <%- include('./../views/partials/footer') %>
+    
+</body>
+</html>

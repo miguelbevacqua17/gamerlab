@@ -1,0 +1,48 @@
+<%-include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Iniciá sesión';</script>
+
+<body>
+    <%- include('./../views/partials/header') %>
+
+<main>
+  
+    <form action="/users/login" method="POST" class="formulario-login">
+        <div class="izq">
+            <div class="usuariologin"><i class="fas fa-sign-in-alt"></i></div>
+
+            <div class="control-formulario">
+                <label>Email:</label>
+                <input type="email" name="email" class="usuario" placeholder="Direccion de email">
+                <% if (locals.errors && errors.email) { %>
+                    <div class = "text-danger">
+                    <%=  errors.email.msg %>
+                    </div>
+                    <% } %>
+            </div>
+            
+            <div class="control-formulario">
+                <label>Contraseña:</label>
+                <input type="password" name="contrasena" class="contraseña" placeholder="Contraseña">
+            </div>
+
+            <input type="checkbox" class="" name="remember_user">Recorda mi usuario
+       
+            <button type="submit" class="boton-formulario">Iniciar Sesión</button>
+        </div>
+ 
+        <div class="derecha">
+            <img src="/img/img-login.jpg" alt="img-login" class="img-login">
+        </div>
+
+    </form>
+
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+</main>
+
+<%- include('./../views/partials/footer') %>
+
+</body>
+
+</html>

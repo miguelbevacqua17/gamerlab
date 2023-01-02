@@ -1,0 +1,67 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - <%= user.nombre %>';</script>
+
+<body>
+    <%- include('./../views/partials/header') %>
+
+<main>
+
+    <div class="formulario-registro" >
+        <section class="perfil-box">
+
+            <h1 class="titulos">¡Hola, <%=user.nombre%>!</h1>
+
+            <div class="profile-pic">
+                <label class="label" for="file">
+                  <span></span>
+                </label>
+                <input type="file" name="imagen" id="foto-producto" />
+                <img src="/img/avatars/<%=user.imagen%>" id="output" width="200" />
+            </div>
+            
+            <div class="datoperfil">
+                <h2 class="perfil" id="name">Nombre de Usuario:</h2>
+                <p><%= user.nombre %></p>
+            </div>
+
+            <div class="datoperfil">
+                <h2 class="perfil" id="name">Apellido de Usuario:</h2>
+                <p><%= user.apellido %></p>
+            </div>
+
+            <div class="datoperfil">
+            <h2 class="perfil" id="fecha_nacimiento">Cumpleaños: </h2>
+                <p><%= user.fecha_nacimiento %></p>
+            </div>
+
+            <div class="datoperfil">
+            <h2 class="perfil" id="email">Dirección de email: </h2>
+                <p><%= user.email %></p>
+            </div>
+
+            <div class="datoperfil">
+                <h2 class="perfil" id="dni">DNI: </h2>
+                    <p><%= user.dni %></p>
+                </div>
+
+            <div class="datoperfil">
+                <h2 class="perfil" id="telefono">Teléfono: </h2>
+                    <p><%= user.telefono %></p>
+                </div>
+            
+            <a class="prod-edit boton-editar" href="/users/profile/<%=user.id%>">Editar perfil</a>
+            <a class="prod-edit boton-editar" href="/users/profile/password/<%=user.id%>">Editar contraseña</a>
+
+        </section>
+    </div>
+    
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+</main>
+
+<%- include('./../views/partials/footer') %>
+
+</body>
+
+</html>

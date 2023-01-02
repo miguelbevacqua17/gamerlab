@@ -1,0 +1,66 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Edidición producto';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+
+    <form action="/products/edit/<%=productos.id%>?_method=PUT" name="formulario" id="form" method="POST" class="formulario-prod" enctype="multipart/form-data"onsubmit="return validar();">
+        
+    <h1 class="titulo-formulario">EDICIÓN DE PRODUCTO</h1>
+
+    <div class="formulario-producto">
+        <label>Imagen del producto: </label>
+        <input type="file" name="image" class="usuario" value="<%=productos.imagen%>" id="image">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Nombre del producto:</label>
+        <input type="text" value="<%=productos.nombre%>" name="name" class="usuario" placeholder="Nombre del producto" id="name">
+    </div>    
+    
+    <div class="formulario-producto">
+        <label>Descripción:</label>
+        <textarea rows="4" cols="40" id="description" class="usuario" name="description"><%=productos.descripcion%></textarea>
+    </div>
+
+    <div class="formulario-producto">
+        <label>Precio:</label>
+        <input type="text" value = "<%=productos.precio_lista%>" name="price" class="usuario" placeholder="$" id="price">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Descuento: </label>
+        <input type="text" value="<%=productos.descuento%>" name="discount" class="usuario" placeholder="%" id="discount">
+    </div>
+
+    <div class="formulario-producto">
+        <label>Stock: </label>
+        <input type="number" name="stock" class="usuario" id="stock" value="<%=productos.stock%>">
+    </div>
+
+
+    <div class="formulario-producto">
+        <label for="categoria">Categoría del producto: </label>
+            <select id="category" name="category" class="usuario">
+                <% for (let i = 0; i < categorias.length; i++) { %>
+                    <% if (categorias[i].id == productos.categoria_fk) { %>
+                <option value="<%=categorias[i].id%>" selected>
+                    <%=categorias[i].nombre%>
+                </option>
+                <% } else %>
+                <option value="<%=categorias[i].id%>">
+                    <%=categorias[i].nombre%>
+                </option>
+                <% } %>
+                
+            </select>
+            
+    </div>
+
+    <button type="submit" class="formulario-boton">Modificar producto</button>
+</form>
+<script src="/js/sweetalert2.min.js"></script>
+<script src="/js/validar.js"></script>
+</main>
+<%- include('./../views/partials/footer') %>
+</body>
+</html>

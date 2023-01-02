@@ -1,0 +1,62 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - Contacto';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+    <main>    
+        
+        <div c.lass="container products-wrapper" id="lista-productos">
+            <div class="col-12">
+                <h3 class="titulos">¡Seguinos!</h3>
+            </div>
+
+            <div class="formulario-registro">
+        <h3>Política de cambios y devoluciones</h3>
+        <p>“Los cambios o devoluciones pueden realizarse en cualquier día y horario de atención al público. En el caso de productos no perecederos tales devoluciones o cambios podrán efectuarse dentro de los treinta (30) días corridos posteriores a la operación, salvo que el comercio establezca un plazo mayor.
+            Al momento de efectuarse el cambio o la devolución de productos no perecederos, en caso de existir un saldo a favor del consumidor, el establecimiento está obligado a entregar un comprobante que refleje dicho saldo o su equivalente en dinero en efectivo, a elección del comercio. El comprobante tendrá una vigencia de noventa (90) días corridos desde su emisión, salvo que el comercio establezca un plazo mayor. Ley 3281“.</p>
+        </div>
+        <div class="formulario-registro">
+        <h3>Formas de pago</h3>
+        <i class="far fa-credit-card"></i><p>Tarjetas de crédito: VISA - AMEX</p><p>Tarjetas de débito: VISA</p><p>MercadoPago - MODO</p>
+        </div>
+        <div class="formulario-registro">
+        <h3>Sobre nosotros</h3>
+        <p>Nuestro sitio se basa en una tienda que vende artículos relacionados con el mundo del gaming y el streaming. Los productos ofrecidos son principalmente tecnológicos, aunque también hay artículos de mobiliario, como mesas y escritorios especiales para este tipo de disciplinas.
+            Es una marca que recién comienza en el país pero que apuesta fuerte a la nueva tendencia de los jóvenes con los deportes digitales y el streaming, tan impulsado por redes sociales como Youtube o Twich.
+        </p>
+        </div>
+        <form method="POST" action="#" class="formulario-registro" enctype="multipart/form-data">
+            <h3>Trabaja con nosotros</h3>
+        <div class="control-formulario">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre">
+                <div class="text-danger">
+                </div>
+        </div>
+        <div class="control-formulario">
+            <label>Dirección de email:</label>
+            <input id="email" type="email" name="email" placeholder="ejemplo@email.com">
+                <div class="text-danger">
+                </div>
+        </div>
+        <div class="control-formulario">
+            <label>Adjunta CV:</label>
+            <input type="file" class="usuario">
+                <div class="text-danger">
+                </div>
+        </div>
+
+        <button type="submit" class="boton-formulario">Enviar</button>
+        </form>
+        <div class="formulario-registro">
+        <h3>Sucursales</h3>
+        <p>Av.Callao 1020, CABA</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.0710572612046!2d-58.39403427076352!3d-34.59697359482644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabe1258be27%3A0x83f3e17cc30d2a61!2sAv.%20Callao%201020%2C%20C1023AAQ%20CABA!5e0!3m2!1ses!2sar!4v1632151783094!5m2!1ses!2sar" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        </div>
+    <script src="/js/sweetalert2.min.js"></script>
+    </main>
+    
+    <%- include('./../views/partials/footer') %>
+    
+</body>
+</html>

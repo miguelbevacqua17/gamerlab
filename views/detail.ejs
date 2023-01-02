@@ -1,0 +1,53 @@
+<%- include('./../views/partials/head') %>
+<script> const title = document.getElementById('title'); title.textContent = 'Gamerlab - <%=productos.nombre%>';</script>
+<body>
+    <%- include('./../views/partials/header') %>
+    <main>
+
+<div class="product-container" id="lista-productos">
+    <div class="prod-box">
+        <div class="prod-img-container">
+            <div class="prod-big-img">
+                <img src="/img/products/<%=productos.imagen%>">
+            </div>
+        </div>
+        
+        <div class="prod-content">
+            <p><%=productos.categorias.nombre%></p>
+            <h3 class="prod-title"><%=productos.nombre%></h3>
+            <div class="prod-price"><%=productos.precio_lista%></div>
+            <div class="prod-discount"><%=productos.descuento%>% OFF</div>            
+            <div class="prod-description"><%=productos.descripcion%></div> 
+            <form action="">
+                <div class="prod-options">
+                    <span>Elegí el color:</span>
+                    <select name="" id="">
+                        <option value="negro">Negro</option>
+                        <option value="azul">Azul</option>
+                        <option value="verde">Verde</option>
+                    </select>
+                </div>
+            </form>
+            <div class="prod-buttons">
+                   <a href="" class="prod-edit agregar-carrito" data-id="<%=productos.id%>">Comprar</a>
+                
+                <% if (locals.isLogged.rol == 1) { %>
+
+                   <a class="prod-edit" href="/products/edit/<%=productos.id%>">Editar</a>
+                   <form action="/products/delete/<%=productos.id%>?_method=DELETE" class="form-prod-delete" method="POST" onsubmit="return confirm('¿Estas Seguro que queres borrar?')">
+                   <button type="submit" class="prod-delete">Eliminar</button>
+
+                   </form>
+                
+                <% } %>
+            </div>
+        </div>
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="/js/pedido.js"></script>
+    </div>
+</div>
+</main>
+<%- include('./../views/partials/footer') %>
+</body>
+</html>
